@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About Your Name | Portfolio</title>
+<title>Jam Abad | Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,16 +16,6 @@
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --accent:#c25a5a; --accent-ink:#1c1618;
-    --bg:#161213; --surface:#201a1c; --tint:#2a2022; --ink:#f3eeee; --muted:#b3a8ab; --line:#3a2f32; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --accent:#c25a5a; --accent-ink:#1c1618;
-  --bg:#161213; --surface:#201a1c; --tint:#2a2022; --ink:#f3eeee; --muted:#b3a8ab; --line:#3a2f32; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
@@ -114,12 +104,12 @@ footer a:hover{color:var(--accent)}
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">Your<span>Brand</span></a>
+    <a class="logo" href="#top">Jam<span>Abad</span></a>
     <nav aria-label="Main">
       <ul>
         <li><a href="#story">About</a></li>
-        <li><a href="#path">Career</a></li>
-        <li><a href="#press">Press</a></li>
+        <li><a href="#projects">Side Projects</a></li>
+        <li><a href="https://substack.com/@jambxd" target="_blank">Newsletter</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -130,12 +120,13 @@ footer a:hover{color:var(--accent)}
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Your Name</h1>
-        <p class="role">Creator &amp; Founder of <em>Your Brand</em></p>
-        <p class="lede">My career has taken me through [industry], [industry], and [industry]. I used to worry about how I’d explain it on a resume. Now that path is my edge, and the foundation of what I build.</p>
+        <h1>Jam Abad</h1>
+        <p class="role">Structural Engineer &amp; Creator</em></p>
+        <p class="lede">I design buildings by day and create content on my 5-9. I share what I learn about personal finance, ambition, and anything I find interesting.</p>
+
+        <p class="lede">In my free time, I’m probably weightlifting, playing tennis, or running (I've run 2 marathons, so far)</p>
         <div class="links">
-          <a class="btn" href="#">Connect on LinkedIn</a>
-          <a class="btn ghost" href="#contact">Work with me</a>
+          <a class="btn" href="#">CONNECT ON LINKEDIN</a>
         </div>
       </div>
       <div class="photo" role="img" aria-label="Placeholder for your photo">
@@ -148,51 +139,40 @@ footer a:hover{color:var(--accent)}
     </svg>
   </div>
 
-  <section id="story">
+  <section id="story" style="background:var(--tint)">
     <div class="wrap story">
       <div>
-        <h2>I turned a scattered resume into a business of my own</h2>
-        <p>I started sharing what I was learning while working full-time. Over [two years], I built something real alongside my day job, then made the jump to doing it full-time in [month, year].</p>
-        <p>Today, [number]+ people follow my work across [platform], [platform], and [platform]. I help [your audience] [the outcome you deliver for them].</p>
+        <h2>How it started</h2>
+        <p>I fell down an investing subreddit rabbit hole and became obsessed with personal finance and investing. I started creating crypto infographics in July 2025 using an anonymous X account. But AI got better at generating infographics and that format lost its edge.</p>
+
+        <p>I pivoted to LinkedIn and Tiktok, and today 10k+ people follow my work across my socials.</p>
+          
       </div>
       <dl class="facts" aria-label="Highlights">
-        <div><dt>Audience</dt><dd>000K+</dd></div>
-        <div><dt>Years creating</dt><dd>0</dd></div>
-        <div><dt>Brand partners</dt><dd>00</dd></div>
-        <div><dt>Talks given</dt><dd>00</dd></div>
+        <div><dt>Audience</dt><dd>10K+</dd></div>
+        <div><dt>Years creating</dt><dd>1</dd></div>
+        <div><dt>Brand partners</dt><dd>5</dd></div>
       </dl>
     </div>
   </section>
 
-  <section id="path" style="background:var(--tint)">
+  <section id="projects">
     <div class="wrap">
-      <h2>The path so far</h2>
-      <ol class="steps">
-        <li><strong>[Role or company], [City]</strong><span>One line on what you did and what it taught you.</span></li>
-        <li><strong>[Role or company], [City]</strong><span>One line on what you did and what it taught you.</span></li>
-        <li><strong>[Role or company], [City]</strong><span>One line on what you did and what it taught you.</span></li>
-        <li><strong>Founder, Your Brand</strong><span>What you’re building now, and who it’s for.</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="press">
-    <div class="wrap">
-      <h2>Selected media coverage</h2>
+      <h2>Recent Works</h2>
       <div class="cards">
-        <a class="card" href="#"><div class="thumb">Outlet</div><div class="body"><small>Month Year</small><h3>Headline of the article that featured you</h3></div></a>
+        <a class="card" href="#"><div class="thumb">Outlet</div><div class="body"><small>Jul 2025</small><h3>Crypto Infographics</h3></div></a>
         <a class="card" href="#"><div class="thumb">Outlet</div><div class="body"><small>Month Year</small><h3>Headline of the article that featured you</h3></div></a>
         <a class="card" href="#"><div class="thumb">Outlet</div><div class="body"><small>Month Year</small><h3>Headline of the article that featured you</h3></div></a>
       </div>
     </div>
   </section>
 
-  <section id="contact" style="padding-top:20px">
+  <section id="contact" style="padding-top:10px">
     <div class="wrap">
       <div class="cta">
         <h2>Let’s work together.</h2>
-        <p>For brand partnerships, speaking, press, and other collaborations.</p>
-        <a class="btn" href="mailto:hello@example.com">Get in touch</a>
+        <p>For brand partnerships and other collaborations</p>
+        <a class="btn" href="mailto:work.jmabad@gmail.com">GET IN TOUCH</a>
       </div>
     </div>
   </section>
@@ -200,14 +180,7 @@ footer a:hover{color:var(--accent)}
 
 <footer>
   <div class="wrap foot">
-    <span>© 2026 Your Brand · Founded by Your Name</span>
-    <ul>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">TikTok</a></li>
-      <li><a href="#">YouTube</a></li>
-      <li><a href="#">Newsletter</a></li>
-    </ul>
+    <span>© 2026 · Build and Designed Jam Abad</span>
   </div>
 </footer>
 
