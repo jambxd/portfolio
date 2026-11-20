@@ -48,6 +48,8 @@ h1{font:700 clamp(3rem,8vw,5.75rem)/.95 var(--display);letter-spacing:-.035em;ma
 .btn.ghost:hover{background:var(--accent);color:var(--accent-ink)}
 .photo{aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:var(--tint);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.95rem;padding:24px}
 .photo b{display:block;font:700 4rem var(--display);color:var(--accent);margin-bottom:6px}
+.photo{overflow:hidden;padding:0}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .path{position:absolute;left:0;right:0;bottom:-10px;width:100%;height:150px;z-index:0;pointer-events:none}
 .path path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:6 11;opacity:.55}
 .path circle{fill:var(--accent)}
@@ -90,12 +92,13 @@ h2{font:700 clamp(1.9rem,4vw,2.9rem)/1.08 var(--display);letter-spacing:-.025em;
 .slides[hidden]{display:none}
 .slide{position:relative;flex:none;width:100%;scroll-snap-align:center;background:var(--tint);display:grid;place-items:center;text-align:center;color:var(--muted)}
 .slide span{padding:24px}
-.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 .ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
 .ctrl span{color:var(--muted);font-size:.95rem}
 .ctrl div{display:flex;gap:10px}
 .ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--accent);font-size:1.2rem;cursor:pointer;display:grid;place-items:center}
 .ctrl button:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media(min-width:821px){.stage{min-height:620px}}
 @media(max-width:820px){.press{grid-template-columns:1fr}.slides{flex:none;aspect-ratio:4/5}}
 
 /* testimonials marquee */
@@ -157,7 +160,7 @@ footer a:hover{color:var(--accent)}
     <div class="wrap hero-grid">
       <div>
         <h2>Hey!</h2>
-        <p class="role">I'm a Structural Engineer &amp; Creator. I write Scale Shift, a weekly newsletter on personal finance, career, and personal growth.</em></p>
+        <p class="role">I'm a Structural Engineer &amp; Creator. I write Scale Shift, a weekly newsletter on personal finance, career, and personal growth.</p>
 
         <p>In July 2025, I started an anonymous X account turning complex crypto topics into digestible visuals. I grew that page from zero, until AI caught up and that format lost its edge.</p>
         <p>Today, I write under my own name for ambitious professionals building wealth and better systems. Explore my selected work below.</p>
@@ -168,7 +171,7 @@ footer a:hover{color:var(--accent)}
         </div>
       </div>
       <div class="photo" role="img" aria-label="Photo">
-        <div>Replace with your photo</div>
+        <img src="portfolio-assets/icon.jpeg" alt="Jam Abad">
       </div>
     </div>
     <svg class="path" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true">
@@ -184,7 +187,7 @@ footer a:hover{color:var(--accent)}
         <div class="acc">
           <details name="coverage" open>
             <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-news"/></svg></span>Infographics<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>One-pager infographics explaining complex crypto topics into digestible content</p>
+            <div class="more"><p>One-pager infographics explaining complex crypto topics into digestible content</p></div>
           </details>
 
           <details name="coverage">
@@ -198,12 +201,24 @@ footer a:hover{color:var(--accent)}
           </details>
         </div>
         <div class="stage">
-          <!-- To use your own photos, replace each <span> with: <img src="your-photo.jpg" alt="Describe the photo"> -->
-          <div class="slides" id="slides" tabindex="0" aria-label="Photo carousel">
-            <div class="slide"><span>Photo 1<br>Replace with your image</span></div>
-            <div class="slide"><span>Photo 2<br>Replace with your image</span></div>
-            <div class="slide"><span>Photo 3<br>Replace with your image</span></div>
-            <div class="slide"><span>Photo 4<br>Replace with your image</span></div>
+          <!-- One carousel per row, in the same order as the rows on the left (Infographics, Personal Finance, Newsletter).
+               Only the first one is visible at the start; the others have "hidden".
+               To use your own photos, replace each <span>...</span> with: <img src="portfolio-assets/your-photo.jpg" alt="Describe the photo"> -->
+          <div class="slides" tabindex="0" aria-label="Infographics">
+            <div class="slide"><img src="portfolio-assets/blockchain-basics.jpg" alt="Blockchain Basics"></div>
+            <div class="slide"><img src="portfolio-assets/crypto-wallets.jpg" alt="Crypto Wallets"></div>
+            <div class="slide"><img src="portfolio-assets/eth-scaelling.jpg" alt="Ethereum Scalling"></div>
+            <div class="slide"><img src="portfolio-assets/dex-aggregator.jpg" alt="DEX Aggregator"></div>
+          </div>
+          <div class="slides" tabindex="0" aria-label="Personal Finance" hidden>
+            <div class="slide"><img src="portfolio-assets/carousel-1.jpg" alt="Carousel 1"></div>
+            <div class="slide"><img src="portfolio-assets/carousel-2.jpg" alt="Carousel 2"></div>
+            <div class="slide"><img src="portfolio-assets/carousel-3.jpg" alt="Carousel 3"></div>
+            <div class="slide"><img src="portfolio-assets/carousel-4.jpg" alt="Carousel 4"></div>
+            <div class="slide"><img src="portfolio-assets/carousel-5.jpg" alt="Carousel 5"></div>
+          </div>
+          <div class="slides" tabindex="0" aria-label="Newsletter" hidden>
+            <div class="slide">><img src="portfolio-assets/newsletter.jpeg" alt="Newsletter"></div>
           </div>
           <div class="ctrl">
             <span id="count">1 / 4</span>
@@ -226,14 +241,14 @@ footer a:hover{color:var(--accent)}
         <blockquote class="quote"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
         <blockquote class="quote"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
         <blockquote class="quote"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
-        <blockquote class="quote"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter & Pre-CMO</small></cite></blockquote>
+        <blockquote class="quote"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
 
         <!-- Duplicate set: must match the cards above exactly for a seamless loop -->
         <blockquote class="quote" aria-hidden="true"><p>Jam's Infographics are so clean and top tier</p><cite>Gabe<small>X Creator</small></cite></blockquote>
         <blockquote class="quote" aria-hidden="true"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
         <blockquote class="quote" aria-hidden="true"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
         <blockquote class="quote" aria-hidden="true"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
-        <blockquote class="quote" aria-hidden="true"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter & Pre-CMO</small></cite></blockquote>
+        <blockquote class="quote" aria-hidden="true"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
 
       </div>
     </div>
@@ -244,7 +259,7 @@ footer a:hover{color:var(--accent)}
       <div class="cta">
         <h2>Let’s work together.</h2>
         <p>For brand partnerships and collaborations.</p>
-        <a class="btn" href="work.jmabad@gmail.com">Get in touch</a>
+        <a class="btn" href="mailto:work.jmabad@gmail.com">Get in touch</a>
       </div>
     </div>
   </section>
@@ -262,14 +277,16 @@ footer a:hover{color:var(--accent)}
 
 <script>
 (function(){
-  var s=document.getElementById('slides'),c=document.getElementById('count'),n=s.children.length;
-  function idx(){return Math.round(s.scrollLeft/s.clientWidth)}
-  function upd(){c.textContent=(idx()+1)+' / '+n}
-  function go(d){var i=idx()+d;if(i<0)i=n-1;if(i>=n)i=0;s.scrollTo({left:i*s.clientWidth,behavior:'smooth'})}
-  s.addEventListener('scroll',upd);
+  var sets=document.querySelectorAll('.slides'),items=document.querySelectorAll('.acc details'),c=document.getElementById('count'),cur=0;
+  function idx(){var s=sets[cur];return Math.round(s.scrollLeft/s.clientWidth)}
+  function upd(){c.textContent=(idx()+1)+' / '+sets[cur].children.length}
+  function show(i){cur=i;sets.forEach(function(s,k){s.hidden=k!==i});sets[i].scrollLeft=0;upd()}
+  function go(d){var s=sets[cur],n=s.children.length,i=idx()+d;if(i<0)i=n-1;if(i>=n)i=0;s.scrollTo({left:i*s.clientWidth,behavior:'smooth'})}
+  sets.forEach(function(s){s.addEventListener('scroll',upd)});
+  items.forEach(function(d,i){d.addEventListener('toggle',function(){if(d.open)show(i)})});
   document.getElementById('prev').addEventListener('click',function(){go(-1)});
   document.getElementById('next').addEventListener('click',function(){go(1)});
-  upd();
+  show(0);
 })();
 </script>
 
