@@ -7,17 +7,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --accent:#6b1010; --accent-ink:#ffffff;
-  --bg:#fbfaf8; --surface:#ffffff; --tint:#f3ecec; --ink:#1c1618; --muted:#665c60; --line:#e4dcdd;
+  --accent:#6b1010; 
+  --accent-ink:#ffffff;
+  --bg:#fbfaf8; 
+  --surface:#ffffff; 
+  --tint:#f3ecec; 
+  --ink:#1c1618; 
+  --muted:#665c60; 
+  --line:#e4dcdd;
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
+
 *,*::before,*::after{box-sizing:inherit}
+
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
@@ -26,8 +35,18 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
 /* nav */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+header{position:sticky;
+  top:env(safe-area-inset-top,10px);
+  z-index:11;background:var(--bg);
+  border-bottom:1px solid var(--line)
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:64px;gap:px}
+
 .logo{font:700 1.15rem var(--display);text-decoration:none;letter-spacing:-.01em}
 .logo span{color:var(--accent)}
 nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
@@ -87,12 +106,44 @@ h2{font:700 clamp(1.9rem,4vw,2.9rem)/1.08 var(--display);letter-spacing:-.025em;
 .acc .more p{margin:0 0 14px}
 .acc .more a{font-weight:600}
 .stage{border:1px solid var(--line);border-radius:28px;padding:24px;background:var(--surface);display:flex;flex-direction:column;min-width:0}
-.slides{flex:1;min-height:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
+
+.slides{
+  flex:1;
+  min-height:0;
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+   scrollbar-width:none;border-radius:16px
+  }
+
 .slides::-webkit-scrollbar{display:none}
 .slides[hidden]{display:none}
-.slide{position:relative;flex:none;width:100%;scroll-snap-align:center;background:var(--tint);display:grid;place-items:center;text-align:center;color:var(--muted)}
-.slide span{padding:24px}
-.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+
+.slide{
+  position:relative;
+  flex:none;
+  width:100%;
+  scroll-snap-align:center;
+  background:var(--tint);
+  display:block;
+  place-items:center;
+  text-align:center;
+  color:var(--muted)
+}
+
+.slide span{
+  padding:24px
+}
+
+.slide img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+
 .ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
 .ctrl span{color:var(--muted);font-size:.95rem}
 .ctrl div{display:flex;gap:10px}
@@ -187,12 +238,12 @@ footer a:hover{color:var(--accent)}
         <div class="acc">
           <details name="coverage" open>
             <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-news"/></svg></span>Infographics<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>One-pager infographics explaining complex crypto topics into digestible content</p></div>
+            <div class="more"><p>One-pager infographics explaining complex crypto topics into digestible content.</p></div>
           </details>
 
           <details name="coverage">
             <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-money"/></svg></span>Personal Finance<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>Tiktok Carousel for personal finance system.</p><a href="https://www.tiktok.com/@jambxd_/photo/7703884324118088980" target="_blank">See post.</a></div>
+            <div class="more"><p>Tiktok Carousel for personal finance system.</p><a href="https://www.tiktok.com/@jambxd_/photo/7703884324118088980" target="_blank">See post</a></div>
           </details>
 
           <details name="coverage">
@@ -211,11 +262,11 @@ footer a:hover{color:var(--accent)}
             <div class="slide"><img src="portfolio-assets/dex-aggregator.jpg" alt="DEX Aggregator"></div>
           </div>
           <div class="slides" tabindex="0" aria-label="Personal Finance" hidden>
-            <div class="slide"><img src="portfolio-assets/carousel-1.jpg" alt="Carousel 1"></div>
-            <div class="slide"><img src="portfolio-assets/carousel-2.jpg" alt="Carousel 2"></div>
-            <div class="slide"><img src="portfolio-assets/carousel-3.jpg" alt="Carousel 3"></div>
-            <div class="slide"><img src="portfolio-assets/carousel-4.jpg" alt="Carousel 4"></div>
-            <div class="slide"><img src="portfolio-assets/carousel-5.jpg" alt="Carousel 5"></div>
+            <div class="slide"><img src="portfolio-assets/carousel1.jpeg" alt="Carousel 1"></div>
+            <div class="slide"><img src="portfolio-assets/carousel2.jpeg" alt="Carousel 2"></div>
+            <div class="slide"><img src="portfolio-assets/carousel3.jpeg" alt="Carousel 3"></div>
+            <div class="slide"><img src="portfolio-assets/carousel4.jpeg" alt="Carousel 4"></div>
+            <div class="slide"><img src="portfolio-assets/carousel5.jpeg" alt="Carousel 5"></div>
           </div>
           <div class="slides" tabindex="0" aria-label="Newsletter" hidden>
             <div class="slide">><img src="portfolio-assets/newsletter.jpeg" alt="Newsletter"></div>
