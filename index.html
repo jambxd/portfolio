@@ -369,6 +369,35 @@ h2 {
   display: block;
 }
 
+/* "Work In Progress" placeholder */
+.wip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wip-icon {
+  position: absolute;
+  width: 65%;
+  height: auto;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.12;
+}
+
+.wip span {
+  position: relative;
+  padding: 0;
+  font: 600 1.15rem var(--display);
+  color: var(--muted);
+}
+
 /* arrows + counter */
 .ctrl {
   display: flex;
@@ -657,7 +686,7 @@ footer a:hover {
         <li><a class="res" href="resources.html">Free Resources</a></li>
       </ul>
     </nav>
-    <a class="btn nav-btn" href="#contact">Work with me</a>
+    <a class="btn" href="mailto:work.jmabad@gmail.com">Say hi!</a>
   </div>
 </header>
 
@@ -666,17 +695,17 @@ footer a:hover {
     <div class="wrap hero-grid">
       <div>
         <h2>Hey!</h2>
-        <p class="role">I'm a Structural Engineer &amp; Creator. I write Scale Shift, a weekly newsletter on personal finance, career, and personal growth.</p>
+        <p class="role">I'm a Structural Engineer &amp; Creator. I write Scale Shift, a newsletter on personal finance, career, and personal growth.</p>
 
         <p>In July 2025, I started an anonymous X account turning complex crypto topics into digestible visuals. I grew that page from zero, until AI caught up and that format lost its edge.</p>
-        <p>Today, I write under my own name for ambitious professionals building wealth and better systems. Explore my selected work below.</p>
+        <p>Today, I create content on my 5-9 for ambitious professionals building better systems- in money, work, and life. Explore my works below.</p>
 
         <div class="links">
           <a class="btn" href="https://www.linkedin.com/in/abadjm/" target="_blank">Connect on LinkedIn</a>
-          <a class="btn ghost" href="#contact">Work with me</a>
+          <a class="btn ghost" href="mailto:work.jmabad@gmail.com">Say hi!</a>
         </div>
       </div>
-      <div class="photo" role="img" aria-label="Photo">
+      <div class="photo" role="img" aria-label="Photo">hi
         <img src="portfolio-assets/icon.jpeg" alt="Jam Abad">
       </div>
     </div>
@@ -729,14 +758,20 @@ footer a:hover {
             </div>
           </div>
           <h3>Personal Finance</h3>
-          <p>Tiktok Carousel for personal finance system.</p>
+          <p>Carousel for personal finance system.</p>
           <a href="https://www.tiktok.com/@jambxd_/photo/7703884324118088980" target="_blank" rel="noopener">See post</a>
         </article>
 
         <article class="wcard">
           <div class="cc">
             <div class="slides" tabindex="0" aria-label="Newsletter">
-              <div class="slide"><img src="portfolio-assets/newsletter.jpeg" alt="Newsletter"></div>
+              <div class="slide">
+                <div class="wip">
+                  <svg class="wip-icon" viewBox="0 0 24 24" aria-hidden="true">
+                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                  </svg>
+                 <span>Work In Progress</span>
+              </div>
             </div>
             <div class="ctrl">
               <span class="count">1 / 1</span>
@@ -746,28 +781,23 @@ footer a:hover {
               </div>
             </div>
           </div>
-          <h3>Newsletter</h3>
-          <p>Long-form media where I write about personal finance, career, and personal growth.</p>
-          <a href="https://scaleshift.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noopener">Read More</a>
+          <h3>Money Foundation</h3>
+          <p>A "zero-to-investor" roadmap structured specifically for young professionals.</p>
         </article>
       </div>
 
-      <h3 class="subhead">My Substack Articles</h3>
+      <h2 class="subhead">Recent Articles</h2>
       <div class="posts">
         <a class="post" href="https://substack.com/home/post/p-223400655" target="_blank" rel="noopener">
-          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
-          <h3>Title of your first article</h3>
-          <small>Read on Substack →</small>
+          <div class="thumb"><img src="portfolio-assets/article1.png" alt="Article 1"></div>
+          <h3>I want to be creative but I'm scared to be seen</h3>
+          <small>Read more →</small>
         </a>
-        <a class="post" href="https://scaleshift.substack.com/p/your-second-article" target="_blank" rel="noopener">
-          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
-          <h3>Title of your second article</h3>
-          <small>Read on Substack →</small>
-        </a>
-        <a class="post" href="https://scaleshift.substack.com/p/your-third-article" target="_blank" rel="noopener">
-          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
-          <h3>Title of your third article</h3>
-          <small>Read on Substack →</small>
+
+        <a class="post" href="https://substack.com/home/post/p-224276940" target="_blank" rel="noopener">
+          <div class="thumb"><img src="portfolio-assets/article2.png" alt="Article 2"></div>
+          <h3>You need to design your environment to win</h3>
+          <small>Read more →</small>
         </a>
       </div>
     </div>
@@ -794,17 +824,6 @@ footer a:hover {
       </div>
     </div>
   </section>
-
-  <section id="contact" style="padding-top:84px">
-    <div class="wrap">
-      <div class="cta">
-        <h2>Let’s work together.</h2>
-        <p>For brand partnerships and collaborations.</p>
-        <a class="btn" href="mailto:work.jmabad@gmail.com">Get in touch</a>
-      </div>
-    </div>
-  </section>
-</main>
 
 <footer>
   <div class="wrap foot">
