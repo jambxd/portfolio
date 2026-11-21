@@ -3,194 +3,648 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About Your Name | Portfolio</title>
+<title>Jam Abad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --accent:#6b1010; 
-  --accent-ink:#ffffff;
-  --bg:#fbfaf8; 
-  --surface:#ffffff; 
-  --tint:#f3ecec; 
-  --ink:#1c1618; 
-  --muted:#665c60; 
-  --line:#e4dcdd;
-  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
-  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+/* ==========================================================
+   COLORS, FONTS & BASE
+   ========================================================== */
+:root {
+  --accent: #6b1010;
+  --accent-ink: #ffffff;
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --tint: #f3ecec;
+  --ink: #1c1618;
+  --muted: #665c60;
+  --line: #e4dcdd;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-*,*::before,*::after{box-sizing:inherit}
-
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-
-/* nav */
-header{position:sticky;
-  top:env(safe-area-inset-top,10px);
-  z-index:11;background:var(--bg);
-  border-bottom:1px solid var(--line)
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:64px;gap:px}
+html {
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
+  scroll-behavior: smooth;
+}
 
-.logo{font:700 1.15rem var(--display);text-decoration:none;letter-spacing:-.01em}
-.logo span{color:var(--accent)}
-nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
-nav a{text-decoration:none;color:var(--muted)}
-nav a:hover{color:var(--accent)}
-@media(max-width:720px){nav ul{display:none}}
-.nav-btn{padding:10px 22px;font-size:.95rem;flex:none}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.0625rem/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
 
-/* hero */
-.hero{position:relative;padding:72px 0 88px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;position:relative;z-index:1}
-h1{font:700 clamp(3rem,8vw,5.75rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 18px}
-.role{font:500 1.3rem var(--display);color:var(--accent);margin:0 0 26px}
-.lede{font-size:1.2rem;max-width:34em;margin:0 0 32px}
-.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:14px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent);transition:background .15s,color .15s}
-.btn:hover{background:transparent;color:var(--accent)}
-.btn.ghost{background:transparent;color:var(--accent)}
-.btn.ghost:hover{background:var(--accent);color:var(--accent-ink)}
-.photo{aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:var(--tint);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.95rem;padding:24px}
-.photo b{display:block;font:700 4rem var(--display);color:var(--accent);margin-bottom:6px}
-.photo{overflow:hidden;padding:0}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.path{position:absolute;left:0;right:0;bottom:-10px;width:100%;height:150px;z-index:0;pointer-events:none}
-.path path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:6 11;opacity:.55}
-.path circle{fill:var(--accent)}
-@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:40px}.photo{max-width:320px}.hero{padding-top:44px}}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 10;
+}
 
-/* sections */
-section{padding:84px 0}
-h2{font:700 clamp(1.9rem,4vw,2.9rem)/1.08 var(--display);letter-spacing:-.025em;margin:0 0 22px;max-width:18em}
-.story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.story p{margin:0 0 18px;max-width:36em}
-.story p:last-child{margin:0}
-.facts{background:var(--tint);border-radius:16px;padding:12px 28px}
-.facts div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.facts div:last-child{border:0}
-.facts dt{color:var(--muted);font-size:.95rem}
-.facts dd{margin:0;font:700 1.35rem var(--display);color:var(--accent);text-align:right}
-@media(max-width:820px){.story{grid-template-columns:1fr;gap:36px}}
+a {
+  color: inherit;
+}
 
-.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
-/* press: accordion + photo carousel */
-.press{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;align-items:stretch}
-.acc{display:flex;flex-direction:column;gap:14px}
-.acc svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.acc details{background:var(--tint);border-radius:20px;transition:background .2s,color .2s}
-.acc summary{display:flex;align-items:center;gap:20px;padding:18px 24px;cursor:pointer;list-style:none;font:600 1.25rem var(--display)}
-.acc summary::-webkit-details-marker{display:none}
-.acc .ico{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex:none}
-.acc .ico svg{width:26px;height:26px}
-.acc .arr{margin-left:auto;width:22px;height:22px;flex:none;transition:transform .2s}
-.acc details[open]{background:var(--accent);color:var(--accent-ink)}
-.acc details[open] .ico{background:var(--accent-ink);color:var(--accent)}
-.acc details[open] .arr{transform:rotate(180deg)}
-.acc .more{padding:0 24px 24px}
-.acc .more p{margin:0 0 14px}
-.acc .more a{font-weight:600}
-.stage{border:1px solid var(--line);border-radius:28px;padding:24px;background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-.slides{
-  flex:1;
-  min-height:0;
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-   scrollbar-width:none;border-radius:16px
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 10px);
+  z-index: 11;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+
+.logo {
+  font: 700 1.15rem var(--display);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+nav ul {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a.res {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-btn {
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  flex: none;
+}
+
+@media (max-width: 720px) {
+  nav ul {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn.ghost:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+.hero {
+  position: relative;
+  padding: 72px 0 88px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font: 700 clamp(3rem, 8vw, 5.75rem)/0.95 var(--display);
+  letter-spacing: -0.035em;
+  margin: 0 0 18px;
+}
+
+.role {
+  font: 500 1.3rem var(--display);
+  color: var(--accent);
+  margin: 0 0 26px;
+}
+
+.lede {
+  font-size: 1.2rem;
+  max-width: 34em;
+  margin: 0 0 32px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* hero photo (arch shape) */
+.photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 200px 200px 16px 16px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  overflow: hidden;
+  padding: 0;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* dotted path under the hero */
+.path {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 150px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.path path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 6 11;
+  opacity: 0.55;
+}
+
+.path circle {
+  fill: var(--accent);
+}
+
+@media (max-width: 820px) {
+  .hero {
+    padding-top: 44px;
   }
 
-.slides::-webkit-scrollbar{display:none}
-.slides[hidden]{display:none}
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
-.slide{
-  position:relative;
-  flex:none;
-  width:100%;
-  scroll-snap-align:center;
-  background:var(--tint);
-  display:block;
-  place-items:center;
-  text-align:center;
-  color:var(--muted)
+  .photo {
+    max-width: 320px;
+  }
 }
 
-.slide span{
-  padding:24px
+
+/* ==========================================================
+   GENERAL SECTIONS
+   ========================================================== */
+section {
+  padding: 84px 0;
 }
 
-.slide img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block
+h2 {
+  font: 700 clamp(1.9rem, 4vw, 2.9rem)/1.08 var(--display);
+  letter-spacing: -0.025em;
+  margin: 0 0 22px;
+  max-width: 18em;
 }
 
-.ctrl{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
-.ctrl span{color:var(--muted);font-size:.95rem}
-.ctrl div{display:flex;gap:10px}
-.ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--accent);font-size:1.2rem;cursor:pointer;display:grid;place-items:center}
-.ctrl button:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-@media(min-width:821px){.stage{min-height:620px}}
-@media(max-width:820px){.press{grid-template-columns:1fr}.slides{flex:none;aspect-ratio:4/5}}
 
-/* testimonials marquee */
-.say{padding:84px 0;overflow:hidden;background:var(--tint)}
-.marquee{margin-top:36px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.track{display:flex;gap:20px;width:max-content;animation:slide 50s linear infinite}
-.marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(calc(-50% - 10px))}}
-.quote{flex:none;width:340px;margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
-.quote::before{content:"\201C";font:700 3rem/0.6 var(--display);color:var(--accent)}
-.quote p{margin:0;font-size:1.02rem}
-.quote cite{font-style:normal;font-weight:600;display:block}
-.quote cite small{display:block;font-weight:400;color:var(--muted);font-size:.88rem}
-@media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
-@media(max-width:520px){.quote{width:280px}}
+/* ==========================================================
+   SELECTED WORK (3 columns)
+   ========================================================== */
+.work {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
 
-/* cta */
-.cta{background:var(--accent);color:var(--accent-ink);border-radius:24px;padding:64px 40px;text-align:center}
-.cta h2{margin:0 auto 14px;max-width:14em}
-.cta p{margin:0 auto 28px;max-width:30em;opacity:.9}
-.cta .btn{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
-.cta .btn:hover{background:transparent;color:var(--accent-ink)}
+.wcard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(28, 22, 24, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: center;
+}
 
-footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:.92rem}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
-footer ul{display:flex;flex-wrap:wrap;gap:20px;list-style:none;margin:0;padding:0}
-footer a{text-decoration:none}
-footer a:hover{color:var(--accent)}
+.wcard h3 {
+  font: 700 1.3rem/1.25 var(--display);
+  margin: 22px 0 8px;
+}
 
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.wcard p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.wcard a {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* photo carousel inside each card */
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: 12px;
+  aspect-ratio: 4 / 5;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  position: relative;
+  flex: none;
+  width: 100%;
+  scroll-snap-align: center;
+  background: var(--tint);
+  display: block;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.slide span {
+  padding: 24px;
+}
+
+.slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* arrows + counter */
+.ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.ctrl[hidden] {
+  display: none;
+}
+
+.ctrl span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ctrl div {
+  display: flex;
+  gap: 8px;
+}
+
+.ctrl button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.ctrl button:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+
+/* ==========================================================
+   SUBSTACK ARTICLES
+   ========================================================== */
+.subhead {
+  font: 700 1.7rem var(--display);
+  letter-spacing: -0.02em;
+  margin: 80px 0 0;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.post {
+  display: block;
+  text-decoration: none;
+}
+
+.post .thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(28, 22, 24, 0.08);
+}
+
+.post .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.post h3 {
+  font: 500 1.3rem/1.3 var(--display);
+  margin: 14px 0 6px;
+  transition: color 0.15s;
+}
+
+.post small {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.post:hover h3 {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .work,
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================
+   TESTIMONIALS (scrolling banner)
+   ========================================================== */
+.say {
+  padding: 84px 0;
+  overflow: hidden;
+  background: var(--tint);
+}
+
+.marquee {
+  margin-top: 36px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: slide 50s linear infinite;
+}
+
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+.quote {
+  flex: none;
+  width: 340px;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.quote::before {
+  content: "\201C";
+  font: 700 3rem/0.6 var(--display);
+  color: var(--accent);
+}
+
+.quote p {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.quote cite {
+  font-style: normal;
+  font-weight: 600;
+  display: block;
+}
+
+.quote cite small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 520px) {
+  .quote {
+    width: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}
+
+
+/* ==========================================================
+   CALL TO ACTION (red block)
+   ========================================================== */
+.cta {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: 24px;
+  padding: 64px 40px;
+  text-align: center;
+}
+
+.cta h2 {
+  margin: 0 auto 14px;
+  max-width: 14em;
+}
+
+.cta p {
+  margin: 0 auto 28px;
+  max-width: 30em;
+  opacity: 0.9;
+}
+
+.cta .btn {
+  background: var(--accent-ink);
+  color: var(--accent);
+  border-color: var(--accent-ink);
+}
+
+.cta .btn:hover {
+  background: transparent;
+  color: var(--accent-ink);
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 36px 0 48px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <g id="i-news"><path d="M5 4h11v16H5zM16 9h3v9a2 2 0 0 1-2 2M8 8h5M8 12h5M8 16h5"/></g>
-   <g id="i-money"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></g>
-  <g id="i-users"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 0 1 0 6M18 14c1.8.7 3 2.5 3 5"/></g>
-  <g id="i-star"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></g>
-  <g id="i-arr"><path d="M7 17L17 7M8 7h9v9"/></g>
-</defs></svg>
 
 <header>
   <div class="wrap nav">
@@ -200,6 +654,7 @@ footer a:hover{color:var(--accent)}
         <li><a href="#top">About</a></li>
         <li><a href="#press">Work</a></li>
         <li><a href="#praise">Testimonial</a></li>
+        <li><a class="res" href="resources.html">Free Resources</a></li>
       </ul>
     </nav>
     <a class="btn nav-btn" href="#contact">Work with me</a>
@@ -234,51 +689,86 @@ footer a:hover{color:var(--accent)}
   <section id="press">
     <div class="wrap">
       <h2>Selected Work</h2>
-      <div class="press">
-        <div class="acc">
-          <details name="coverage" open>
-            <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-news"/></svg></span>Infographics<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>One-pager infographics explaining complex crypto topics into digestible content.</p></div>
-          </details>
 
-          <details name="coverage">
-            <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-money"/></svg></span>Personal Finance<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>Tiktok Carousel for personal finance system.</p><a href="https://www.tiktok.com/@jambxd_/photo/7703884324118088980" target="_blank">See post</a></div>
-          </details>
-
-          <details name="coverage">
-            <summary><span class="ico"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></span>Newsletter<svg class="arr" viewBox="0 0 24 24"><use href="#i-arr"/></svg></summary>
-            <div class="more"><p>Long-from media where I write about personal finance, career, and personal growth.</p><a href="https://substack.com/home/post/p-223400655" target="_blank">Read More</a></div>
-          </details>
-        </div>
-        <div class="stage">
-          <!-- One carousel per row, in the same order as the rows on the left (Infographics, Personal Finance, Newsletter).
-               Only the first one is visible at the start; the others have "hidden".
-               To use your own photos, replace each <span>...</span> with: <img src="portfolio-assets/your-photo.jpg" alt="Describe the photo"> -->
-          <div class="slides" tabindex="0" aria-label="Infographics">
-            <div class="slide"><img src="portfolio-assets/blockchain-basics.jpg" alt="Blockchain Basics"></div>
-            <div class="slide"><img src="portfolio-assets/crypto-wallets.jpg" alt="Crypto Wallets"></div>
-            <div class="slide"><img src="portfolio-assets/eth-scaelling.jpg" alt="Ethereum Scalling"></div>
-            <div class="slide"><img src="portfolio-assets/dex-aggregator.jpg" alt="DEX Aggregator"></div>
-          </div>
-          <div class="slides" tabindex="0" aria-label="Personal Finance" hidden>
-            <div class="slide"><img src="portfolio-assets/carousel1.jpeg" alt="Carousel 1"></div>
-            <div class="slide"><img src="portfolio-assets/carousel2.jpeg" alt="Carousel 2"></div>
-            <div class="slide"><img src="portfolio-assets/carousel3.jpeg" alt="Carousel 3"></div>
-            <div class="slide"><img src="portfolio-assets/carousel4.jpeg" alt="Carousel 4"></div>
-            <div class="slide"><img src="portfolio-assets/carousel5.jpeg" alt="Carousel 5"></div>
-          </div>
-          <div class="slides" tabindex="0" aria-label="Newsletter" hidden>
-            <div class="slide">><img src="portfolio-assets/newsletter.jpeg" alt="Newsletter"></div>
-          </div>
-          <div class="ctrl">
-            <span id="count">1 / 4</span>
-            <div>
-              <button type="button" id="prev" aria-label="Previous photo">←</button>
-              <button type="button" id="next" aria-label="Next photo">→</button>
+      <div class="work">
+        <article class="wcard">
+          <div class="cc">
+            <div class="slides" tabindex="0" aria-label="Infographics">
+              <div class="slide"><img src="portfolio-assets/blockchain-basics.jpg" alt="Blockchain Basics"></div>
+              <div class="slide"><img src="portfolio-assets/crypto-wallets.jpg" alt="Crypto Wallets"></div>
+              <div class="slide"><img src="portfolio-assets/eth-scaelling.jpg" alt="Ethereum Scalling"></div>
+              <div class="slide"><img src="portfolio-assets/dex-aggregator.jpg" alt="DEX Aggregator"></div>
+            </div>
+            <div class="ctrl">
+              <span class="count">1 / 4</span>
+              <div>
+                <button type="button" class="prev" aria-label="Previous photo">←</button>
+                <button type="button" class="next" aria-label="Next photo">→</button>
+              </div>
             </div>
           </div>
-        </div>
+          <h3>Infographics</h3>
+          <p>One-pager infographics explaining complex crypto topics into digestible content.</p>
+        </article>
+
+        <article class="wcard">
+          <div class="cc">
+            <div class="slides" tabindex="0" aria-label="Personal Finance">
+              <div class="slide"><img src="portfolio-assets/carousel1.jpeg" alt="Carousel 1"></div>
+              <div class="slide"><img src="portfolio-assets/carousel2.jpeg" alt="Carousel 2"></div>
+              <div class="slide"><img src="portfolio-assets/carousel3.jpeg" alt="Carousel 3"></div>
+              <div class="slide"><img src="portfolio-assets/carousel4.jpeg" alt="Carousel 4"></div>
+              <div class="slide"><img src="portfolio-assets/carousel5.jpeg" alt="Carousel 5"></div>
+            </div>
+            <div class="ctrl">
+              <span class="count">1 / 5</span>
+              <div>
+                <button type="button" class="prev" aria-label="Previous photo">←</button>
+                <button type="button" class="next" aria-label="Next photo">→</button>
+              </div>
+            </div>
+          </div>
+          <h3>Personal Finance</h3>
+          <p>Tiktok Carousel for personal finance system.</p>
+          <a href="https://www.tiktok.com/@jambxd_/photo/7703884324118088980" target="_blank" rel="noopener">See post</a>
+        </article>
+
+        <article class="wcard">
+          <div class="cc">
+            <div class="slides" tabindex="0" aria-label="Newsletter">
+              <div class="slide"><img src="portfolio-assets/newsletter.jpeg" alt="Newsletter"></div>
+            </div>
+            <div class="ctrl">
+              <span class="count">1 / 1</span>
+              <div>
+                <button type="button" class="prev" aria-label="Previous photo">←</button>
+                <button type="button" class="next" aria-label="Next photo">→</button>
+              </div>
+            </div>
+          </div>
+          <h3>Newsletter</h3>
+          <p>Long-form media where I write about personal finance, career, and personal growth.</p>
+          <a href="https://scaleshift.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noopener">Read More</a>
+        </article>
+      </div>
+
+      <h3 class="subhead">My Substack Articles</h3>
+      <div class="posts">
+        <a class="post" href="https://substack.com/home/post/p-223400655" target="_blank" rel="noopener">
+          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
+          <h3>Title of your first article</h3>
+          <small>Read on Substack →</small>
+        </a>
+        <a class="post" href="https://scaleshift.substack.com/p/your-second-article" target="_blank" rel="noopener">
+          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
+          <h3>Title of your second article</h3>
+          <small>Read on Substack →</small>
+        </a>
+        <a class="post" href="https://scaleshift.substack.com/p/your-third-article" target="_blank" rel="noopener">
+          <div class="thumb"><span>Article cover<br>(replace with image)</span></div>
+          <h3>Title of your third article</h3>
+          <small>Read on Substack →</small>
+        </a>
       </div>
     </div>
   </section>
@@ -322,22 +812,40 @@ footer a:hover{color:var(--accent)}
     <ul>
       <li><a href="https://www.linkedin.com/in/abadjm/" target="_blank">LinkedIn</a></li>
       <li><a href="https://scaleshift.substack.com/?utm_campaign=profile_chips" target="_blank">Newsletter</a></li>
+      <li><a href="resources.html">Free Resources</a></li>
     </ul>
   </div>
 </footer>
 
 <script>
-(function(){
-  var sets=document.querySelectorAll('.slides'),items=document.querySelectorAll('.acc details'),c=document.getElementById('count'),cur=0;
-  function idx(){var s=sets[cur];return Math.round(s.scrollLeft/s.clientWidth)}
-  function upd(){c.textContent=(idx()+1)+' / '+sets[cur].children.length}
-  function show(i){cur=i;sets.forEach(function(s,k){s.hidden=k!==i});sets[i].scrollLeft=0;upd()}
-  function go(d){var s=sets[cur],n=s.children.length,i=idx()+d;if(i<0)i=n-1;if(i>=n)i=0;s.scrollTo({left:i*s.clientWidth,behavior:'smooth'})}
-  sets.forEach(function(s){s.addEventListener('scroll',upd)});
-  items.forEach(function(d,i){d.addEventListener('toggle',function(){if(d.open)show(i)})});
-  document.getElementById('prev').addEventListener('click',function(){go(-1)});
-  document.getElementById('next').addEventListener('click',function(){go(1)});
-  show(0);
+(function () {
+  document.querySelectorAll('.cc').forEach(function (cc) {
+    var s = cc.querySelector('.slides');
+    var c = cc.querySelector('.count');
+    var n = s.children.length;
+
+    function idx() {
+      return Math.round(s.scrollLeft / s.clientWidth);
+    }
+
+    function upd() {
+      c.textContent = (idx() + 1) + ' / ' + n;
+    }
+
+    function go(d) {
+      var i = idx() + d;
+      if (i < 0) i = n - 1;
+      if (i >= n) i = 0;
+      s.scrollTo({ left: i * s.clientWidth, behavior: 'smooth' });
+    }
+
+    s.addEventListener('scroll', upd);
+    cc.querySelector('.prev').addEventListener('click', function () { go(-1); });
+    cc.querySelector('.next').addEventListener('click', function () { go(1); });
+
+    if (n < 2) cc.querySelector('.ctrl').hidden = true;
+    upd();
+  });
 })();
 </script>
 
