@@ -77,8 +77,10 @@ a {
    NAVIGATION
    ========================================================== */
 header {
-  position: sticky;
-  top: env(safe-area-inset-top, 10px);
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
   z-index: 11;
   background: var(--bg);
   border-bottom: 1px solid var(--line);
@@ -173,9 +175,13 @@ nav a.res {
 /* ==========================================================
    HERO
    ========================================================== */
+.about {
+  background: var(--tint);
+}
+
 .hero {
   position: relative;
-  padding: 72px 0 88px;
+  padding: 150px 0 88px;
   overflow: hidden;
 }
 
@@ -183,7 +189,7 @@ nav a.res {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 56px;
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 1;
 }
@@ -226,6 +232,7 @@ h1 {
   font-size: 0.95rem;
   overflow: hidden;
   padding: 0;
+  margin-top: 8px;
 }
 
 .photo img {
@@ -263,7 +270,7 @@ h1 {
 
 @media (max-width: 820px) {
   .hero {
-    padding-top: 44px;
+    padding-top: 90px;
   }
 
   .hero-grid {
@@ -441,19 +448,21 @@ h2 {
 
 
 /* ==========================================================
-   SUBSTACK ARTICLES
+   RECENT ARTICLES (tint box)
    ========================================================== */
-.subhead {
-  font: 700 1.7rem var(--display);
-  letter-spacing: -0.02em;
-  margin: 80px 0 0;
+.recent {
+  background: var(--tint);
+}
+
+.recent h2 {
+  margin-bottom: 0;
 }
 
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 .post {
@@ -464,7 +473,7 @@ h2 {
 .post .thumb {
   aspect-ratio: 4 / 3;
   border-radius: 14px;
-  background: var(--tint);
+  background: var(--surface);
   border: 1px solid var(--line);
   overflow: hidden;
   display: grid;
@@ -496,6 +505,26 @@ h2 {
   color: var(--accent);
 }
 
+/* hover: the photo you point at pops up, the others fade back */
+.post {
+  transition: opacity 0.25s ease;
+}
+
+.post .thumb {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post .thumb:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 20px 40px rgba(28, 22, 24, 0.22);
+  position: relative;
+  z-index: 2;
+}
+
+.posts:has(.thumb:hover) .post:not(:has(.thumb:hover)) {
+  opacity: 0.45;
+}
+
 @media (max-width: 900px) {
   .work,
   .posts {
@@ -508,13 +537,19 @@ h2 {
    TESTIMONIALS (scrolling banner)
    ========================================================== */
 .say {
-  padding: 84px 0;
+  padding: 24px 0 84px;
   overflow: hidden;
-  background: var(--tint);
+}
+
+.say h2 {
+  margin: 0;
+  font-size: 1.35rem;
 }
 
 .marquee {
-  margin-top: 36px;
+  width: calc(100% - 48px);
+  max-width: 1032px;
+  margin: 28px auto 0;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
@@ -549,7 +584,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 22px;
+  gap: 10px;
 }
 
 .quote::before {
@@ -681,8 +716,8 @@ footer a:hover {
     <nav aria-label="Main">
       <ul>
         <li><a href="#top">About</a></li>
-        <li><a href="#press">Work</a></li>
         <li><a href="#praise">Testimonial</a></li>
+        <li><a href="#press">Work</a></li>
         <li><a class="res" href="resources.html">Free Resources</a></li>
       </ul>
     </nav>
@@ -691,6 +726,7 @@ footer a:hover {
 </header>
 
 <main id="top">
+  <div class="about">
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -705,7 +741,7 @@ footer a:hover {
           <a class="btn ghost" href="mailto:work.jmabad@gmail.com">Say hi!</a>
         </div>
       </div>
-      <div class="photo" role="img" aria-label="Photo">hi
+      <div class="photo" role="img" aria-label="Photo">
         <img src="portfolio-assets/icon.jpeg" alt="Jam Abad">
       </div>
     </div>
@@ -713,6 +749,29 @@ footer a:hover {
       <path d="M0 110 C120 20, 220 150, 340 90 S 520 10, 640 80 S 860 150, 960 60 S 1120 40, 1200 90"/>
       <circle cx="340" cy="90" r="7"/><circle cx="640" cy="80" r="7"/><circle cx="960" cy="60" r="7"/>
     </svg>
+  </div>
+
+  <section class="say" id="praise" aria-label="What people say about my content">
+    <div class="wrap"><h2>What people say about my content</h2></div>
+    <div class="marquee">
+      <div class="track">
+
+        <blockquote class="quote"><p>Jam's Infographics are so clean and top tier</p><cite>Gabe<small>X Creator</small></cite></blockquote>
+        <blockquote class="quote"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
+        <blockquote class="quote"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
+        <blockquote class="quote"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
+        <blockquote class="quote"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
+
+        <!-- Duplicate set: must match the cards above exactly for a seamless loop -->
+        <blockquote class="quote" aria-hidden="true"><p>Jam's Infographics are so clean and top tier</p><cite>Gabe<small>X Creator</small></cite></blockquote>
+        <blockquote class="quote" aria-hidden="true"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
+        <blockquote class="quote" aria-hidden="true"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
+        <blockquote class="quote" aria-hidden="true"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
+        <blockquote class="quote" aria-hidden="true"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
+
+      </div>
+    </div>
+  </section>
   </div>
 
   <section id="press">
@@ -764,13 +823,14 @@ footer a:hover {
 
         <article class="wcard">
           <div class="cc">
-            <div class="slides" tabindex="0" aria-label="Newsletter">
+            <div class="slides" tabindex="0" aria-label="Money Foundation">
               <div class="slide">
                 <div class="wip">
                   <svg class="wip-icon" viewBox="0 0 24 24" aria-hidden="true">
-                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                   </svg>
-                 <span>Work In Progress</span>
+                  <span>Work In Progress</span>
+                </div>
               </div>
             </div>
             <div class="ctrl">
@@ -785,45 +845,28 @@ footer a:hover {
           <p>A "zero-to-investor" roadmap structured specifically for young professionals.</p>
         </article>
       </div>
+    </div>
+  </section>
 
-      <h2 class="subhead">Recent Articles</h2>
+  <section class="recent" id="articles">
+    <div class="wrap">
+      <h2>Recent Articles</h2>
       <div class="posts">
         <a class="post" href="https://substack.com/home/post/p-223400655" target="_blank" rel="noopener">
-          <div class="thumb"><img src="portfolio-assets/article1.png" alt="Article 1"></div>
-          <h3>I want to be creative but I'm scared to be seen</h3>
-          <small>Read more →</small>
-        </a>
+            <div class="thumb"><img src="portfolio-assets/article1.png" alt="Article 1"></div>
+            <h3>I want to be creative but I'm scared to be seen</h3>
+            <small>Read more →</small>
+          </a>
 
         <a class="post" href="https://substack.com/home/post/p-224276940" target="_blank" rel="noopener">
-          <div class="thumb"><img src="portfolio-assets/article2.png" alt="Article 2"></div>
-          <h3>You need to design your environment to win</h3>
-          <small>Read more →</small>
-        </a>
+            <div class="thumb"><img src="portfolio-assets/article2.png" alt="Article 2"></div>
+            <h3>You need to design your environment to win</h3>
+            <small>Read more →</small>
+          </a>
       </div>
     </div>
   </section>
-
-  <section class="say" id="praise" aria-label="What people say about my content">
-    <div class="wrap"><h2>What people say about my content</h2></div>
-    <div class="marquee">
-      <div class="track">
-
-        <blockquote class="quote"><p>Jam's Infographics are so clean and top tier</p><cite>Gabe<small>X Creator</small></cite></blockquote>
-        <blockquote class="quote"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
-        <blockquote class="quote"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
-        <blockquote class="quote"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
-        <blockquote class="quote"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
-
-        <!-- Duplicate set: must match the cards above exactly for a seamless loop -->
-        <blockquote class="quote" aria-hidden="true"><p>Jam's Infographics are so clean and top tier</p><cite>Gabe<small>X Creator</small></cite></blockquote>
-        <blockquote class="quote" aria-hidden="true"><p>Jam have an obvious value add: her Infographics. A cool skill and benefit to the timeline.</p><cite>Glenn<small>X Creator</small></cite></blockquote>
-        <blockquote class="quote" aria-hidden="true"><p>I missed my class because my phone got stolen. Logged in to X and her post was the first thing I saw. So helpful.</p><cite>Babe<small>Student @ SheFi</small></cite></blockquote>
-        <blockquote class="quote" aria-hidden="true"><p>Jam is an underrated creator.</p><cite>Foxy<small>Ghostwriter</small></cite></blockquote>
-        <blockquote class="quote" aria-hidden="true"><p>I saw her post on crypto intern community and I love her infographics.</p><cite>Keenye<small>Infra Interpreter &amp; Pre-CMO</small></cite></blockquote>
-
-      </div>
-    </div>
-  </section>
+</main>
 
 <footer>
   <div class="wrap foot">
