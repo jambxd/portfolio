@@ -77,8 +77,10 @@ a {
    NAVIGATION
    ========================================================== */
 header {
-  position: sticky;
-  top: env(safe-area-inset-top, 10px);
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
   z-index: 11;
   background: var(--bg);
   border-bottom: 1px solid var(--line);
